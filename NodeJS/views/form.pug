@@ -1,0 +1,23 @@
+html
+html
+   head
+      title Form Tester
+   body
+      form(action = "/", method = "POST")
+         div
+            label(for = "say") Say:
+            input(name = "say" value = "Hi")
+         br
+         div
+            label(for = "to") To:
+            input(name = "to" value = "Express forms")
+         br
+         div
+            label Platform:
+            input(type='radio', name='platform', id='battleNet', value='pc')
+            label(for='battleNet') Battle.net
+            input(type='radio', name='platform', id='xboxLive', value='xbl')
+            label(for='xboxLive') Xbox Live
+            input(type='radio', name='platform', id='playstationNetwork', value='psn')
+            label(for='playstationNetwork') Playstation Network
+         button(type = "submit") Send my greetings
