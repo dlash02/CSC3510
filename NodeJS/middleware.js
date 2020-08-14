@@ -16,7 +16,7 @@ app.use('/route1', function(req, res, next){
  });
 app.get('/route1', function(req, res){
     console.log('\n---- inside slash is execuded and send ');
-    res.send('Inside Slash is executed and send ');
+   res.send('Inside Slash is executed and send ');
  });
 console.log("We are done:" + Date.now());
 

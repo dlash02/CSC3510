@@ -1,0 +1,19 @@
+{
+    "name" : " List of Names",
+    "description" : " A randome list of famous people", 
+    "nameList" : [
+        {
+           "firstName" : "Jack",
+           "lastName" : "Black",
+           "occupation" : "Actor"
+        } , {
+           "firstName" : "Elton",
+           "lastName" : "John",
+           "occupation" : "Musician"
+        } , {
+           "firstName" : "Jay",
+           "lastName" : "Z",
+           "occupation" : "Musician"
+        }
+    ]
+}
