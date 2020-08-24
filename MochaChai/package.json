@@ -1,0 +1,26 @@
+{
+  "name": "MochaChai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai-http": "^4.3.0",
+    "chai": "^4.2.0",
+    "coveralls": "^3.1.0",
+    "express": "^4.17.1",
+    "npc": "^0.0.1",
+    "nyc": "^15.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.1"
+  },
+  "scripts": {
+    "test": "nyc mocha 'test/app/*'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">HBS HOME2</a>
+</nav>
+
+{{!-- depending on the value of the listExists variable --}}
+{{!-- if it’s true then the list will be rendered --}}
+{{!-- if the value is equal to false the list will not be rendered --}}
+{{#if listExists}} 
+  <ul>
+    {{#each suggestedChamps}}
+      <li class={{this.lane}}>{{this.name}}</li>
+    {{/each}}
+  </ul>
+{{/if}}

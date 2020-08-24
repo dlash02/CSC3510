@@ -16,4 +16,3 @@ fs.writeFile("./assets/SomeFile.txt", someText.trim(), err => {
     console.log( "This file has been saved  " );
 });
 console.log( "--- We are done here " );
-console.log( "done reading " );

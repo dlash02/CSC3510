@@ -48,7 +48,9 @@ module.exports = class Reservation {
       datetime: Joi.date().iso().required().raw(),
       party: Joi.number().min(1).max(7).required(),
       name: Joi.string().max(255).required(),
-      email: Joi.string().max(255).required(),
+      // This line should be changed
+      //email: Joi.string().max(255).required(),
+      email: Joi.string().email().required(),
       phone: Joi.string().max(50).allow(''),
       message: Joi.string().max(1000).allow(''),
     });
