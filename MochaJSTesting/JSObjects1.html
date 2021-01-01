@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var myCar = new Object();
+        myCar.make = 'Ford';
+        myCar.model = 'Mustang';
+        myCar.year = 1960;
+
+        myCar2 = {
+            'make' : 'Ford',
+            'model' : 'LTS',
+            'year' : 1977
+        }
+
+        myCar3 = {};
+        myCar3['make']  = 'Ford';
+        myCar3['model']  = 'Turuas';
+        myCar3['year']  = 1945;
+
+        console.log( myCar3 );
+        console.log( `Make:${myCar3.make}` );
+        console.log( `Model:${myCar3.model}` );
+
+        function myCar4( make, model, year ){
+            this.make = make;
+            this.model = model;
+            this.year = year;
+        }
+        myCar = new myCar4( "Toyota", "Camera", 20202 );
+        console.log( `myCar Make:${myCar.make}` );
+
+
+        vehicle = {
+            'make' : 'Pontiac',
+            'Model' : 'Torrent',
+            'Year' : 2006,
+            'Owner' : { 'Name' : 'Lash', 'Job': 'Professor'}
+        }
+
+
+
+
+        console.log( `Vehicle make:${vehicle.make}` );
+        console.log( `Vehicle owner:${vehicle.Owner.Name}` );
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

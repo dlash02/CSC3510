@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        class Student {
+            constructor(name, major) {
+                this.name = name;
+                this.major = major;
+            }
+            alertStudent() {
+                alert(`Name:${this.name} major:${this.major}`);
+            }
+        }
+        let student = new Student("John", "CSC");
+        alert(`student1 name:${student.name}`)
+        student.alertStudent();
+
+        class Student2 {
+            constructor(name, major) {
+                this.name = name;
+                this.major = major;
+            }
+            get name() {
+                return this._name;
+            }
+            set name(value) {
+                if (value.length < 4) {
+                    alert("Name is too short.");
+                    return;
+                }
+                this._name = value;
+            }
+        }
+        let s2 = new Student("Jane", "Bio");
+        alert( `student2 name:${s2.name}` );
+        s2.major="Baseball";
+        alert( `student2 major:${s2.major}` );
+    </script>
+</head>
+<body>
+<span id="student1"></span>
+<span id="student2"></span>
+</body>
+</html>

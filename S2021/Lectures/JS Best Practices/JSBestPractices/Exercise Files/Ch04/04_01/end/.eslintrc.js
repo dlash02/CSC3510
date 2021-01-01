@@ -1,0 +1,15 @@
+module.exports = {
+  env: {
+    es6: true,
+  },
+  parserOptions: {
+    sourceType: 'module',
+  },
+  rules: {
+    strict: ['error', 'global'],
+    'func-style': ['error', 'expression'],
+    'no-new-func': 'error',
+    'no-param-reassign': 'error',
+    'prefer-arrow-callback': 'error',
+  },
+};

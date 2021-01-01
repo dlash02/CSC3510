@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        class Card {
+            #img = "";
+            #suit = 'C';
+            #cValue = 0;
+            constructor(img, suit, cValue ) {
+                this.#img = img;   //private
+                this.#suit = suit;
+                this.#cValue = cValue;
+            }
+            get img() { return this.#img; }
+            set img(value) { this.#img = value; }
+            get cValue() { return this.#cValue; }
+            set cValue(v) { this.#cValue = v; }
+            get suit() { return this.#suit; }
+            set suit(v) { this.#suit = v; }
+        }
+        let cards = [
+            new Card ( '2C.PNG', 'C', 2 ),
+            new Card ( '3D.PNG', 'D', 3 ),
+            new Card ( '4H.PNG', 'H', 5 )
+            //new Card ( '2S.PNG', 'S', 5 )
+            //new Card ( '3C.PNG', 'C', 3 ),
+            //new Card ( '3D.PNG', 'D', 3 ),
+            //new Card ( '3H.PNG', 'H', 3 ),
+            //new Card ( '3S.PNG', 'S', 3 )
+        ];
+        class GState {
+            #nWins = 0;
+            #nCards = 0;
+            #tWinnings = 0;
+            constructor(nWins, nCards, tWinnings) {
+                this.#nWins = nWins;
+                this.#nCards = nCards;
+                this.#tWinnings = tWinnings;
+            }
+            get nWins() { return this.#nWins; }
+            set nWins(value) { this.#nWins = value; }
+            get nCards() { return this.#nCards; }
+            set nCards(value) { this.#nCards = value; }
+            get tWinnings() { return this.#tWinnings; }
+            set tWinnings(value) { this.#tWinnings = value; }
+        }
+        class UInput {
+            #bet = 0;
+            #error = "";
+            constructor(bet, error) {
+                this.#bet = bet;
+                this.#error = error;
+            }
+            get bet() { return this.#bet; }
+            set bet(value) { this.#bet = value; }
+            get error() { return this.#error; }
+            set error(value) { this.#error = value; }
+        }
+        let gGState = new GState( 0, 0, 0);
+        let gUInput = new UInput(0,0);
+        var hand = [];
+        var disCardPile = [];
+        function getGuessBet() {
+            gUInput.bet = document.getElementById("bet").value;
+            gUInput.guess = document.getElementById("guess").value;
+            //alert( `Bet:${uInput.bet}`);
+            //alert( `Bet:${document.getElementById("bet").value}`);
+            gUInput.error = "";
+            gUInput.gotError = false
+            if ( gUInput.bet < 0 || isNaN(gUInput.bet/2) || gUInput.bet == undefined ) {
+                gUInput.gotError = true
+                gUInput.error = `bad bet: ${gUInput.bet}`;
+            }
+        }
+        function getCard(  ){
+            let nCards = cards.length;
+            let r1 = Math.floor(Math.random() * nCards);  // returns a random integer from 0 to 2
+            return cards[r1];
+        }
+        function gotThisCardAlready( cObj, hand  ) {
+            for (let i = 0; i < hand.length; i++) {
+                if( hand[i].img == cObj.img ) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        function getCardNoDup(  hand ){
+            let nCards = cards.length;
+            let r1 = 0;
+            while ( true ) {
+                 r1 = Math.floor(Math.random() * nCards);  // returns a random integer from 0 to 2nd
+                if ( !gotThisCardAlready( cards[r1], hand )){
+                    //alert( `NO Dup :${cards[r1].img}`);
+                    console.error(`NO Dup :${cards[r1].img}`);
+                    break;
+                } else {
+                    //alert( `Dup Detected:${cards[r1].img}`);
+                    console.warn(` Dup detected:${cards[r1].img}`);
+                }
+
+            }
+            return cards[r1];
+        }
+        function resetGame() {
+            alert("Reset")
+        }
+        function startGame() {
+            let resArea = document.getElementById("cardResults");
+
+            gGState.nCards += 3;
+            //let tWins = updateCard( card1, card1, resArea, uInput );
+            const hSize = 3;
+            //let handOfCards = getHandOfCards( hSize );
+            //console.log("HAND:")
+            ////console.log(handOfCards);
+            //return;
+            let handOfCards = getHandOfCardsNoDups( hSize );
+            console.table( handOfCards[0]);
+
+            let tWins = updateCardHandDisplay( handOfCards );
+            //alert("stop");
+
+            hTypeStr = getHandType( handOfCards );
+
+            let tot = getHandTotal( handOfCards );
+
+            oMsg = `total:${tot} hand Type:${hTypeStr}`;
+
+            updateResultsDisplay(oMsg);
+        }
+        function upDateResults( tWins ) {
+            let w = document.getElementById("wins");
+            //alert( "W:" + w.innerText );
+            //let v = w.innerText + tWins;
+            w.innerHTML = tWins;
+
+        }
+        function gotStraight( hand ) {
+            vals = [];
+            for ( let i in hand ) {
+                vals[i] = hand[i].cValue;
+            }
+            vals.sort();
+
+            let last = 0;
+            for ( let i in vals ){
+                if ( i == 0 ){
+                    last = vals[i];
+                } else {
+                   let diff = Math.abs( last - vals[i] );
+                    //let diff = Math.abd( last - vals[i] );
+                    // Leave off as second mistake
+                    last = vals[i];
+                   if ( diff > 1 ) {
+                       console.log( 'return false' );
+                       console.log( vals );
+                       return false;
+                   }
+                }
+            }
+            console.log( 'return true' );
+            console.log( vals );
+            return true;
+        }
+        function gotFlush( hand ) {
+            first = hand[0].suit;
+            //alert( `starting first:${first}  len:${hand.length}`);
+            for ( var i in hand ){
+                let s = hand[i].suit;
+                //alert( `s:${s} first:${first}`);
+                if ( s != first ) return false;
+            }
+            return true;
+        }
+        function getHandOfCardsNoDups( nSize ) {
+            let hand = [];
+                if ( hand.length == cards.length) {
+                    alert( `handLen:${hand.length} == cardLen:${cards.length}`)
+                    return;
+                }
+                for ( let i=0; i<nSize; i++ ) {
+                    let c1 = getCardNoDup( hand );
+                    hand.push(c1);
+                }
+                return hand;
+        }
+        function getHandOfCards( nSize ) {
+            let hand = [];
+            for( let i=0; i<nSize; i++ ){
+                let c1 = getCard(  );
+                hand.push( c1 );
+                console.log( `c1:${c1}` );
+            }
+            return hand;
+        }
+        function updateCardHandDisplay( hand ) {
+            let card1 = document.getElementById("card1");
+            let card2 = document.getElementById("card2");
+            let card3 = document.getElementById("card3");
+            console.log( `lhand:${hand.length}` );
+            console.log( `hand:${hand[0]}` );
+            card1.innerHTML = `<img src='imgs/cards/${hand[0].img}' height='70px' width='50px'>`;
+            card2.innerHTML = `<img src='imgs/cards/${hand[1].img}' height='70px' width='50px'>`;
+            card3.innerHTML = `<img src='imgs/cards/${hand[2].img}' height='70px' width='50px'>`;
+
+        }
+        function updateResultsDisplay( oMsg ){
+            let resArea = document.getElementById("cardResults");
+            alert(`oMsg:${oMsg}`);
+            resArea.innerHTML = oMsg;
+        }
+        function getHandTotal( hand ){
+            let tot = 0;
+            for( let i=0; i<hand.length; i++ ) {
+                tot += hand[i].cValue;
+            }
+            return tot;
+        }
+        function got3OfAKind( hand ) {
+            first = hand[0].cValue;
+            //alert(`first:${first}`)
+            for ( var i in hand ) {
+                //alert(`handi:${hand[i]}`)
+                if ( hand[i].cValue != first ){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function getHandType( hand ) {
+            let type = "None"
+
+            if (got3OfAKind(hand)) {
+                type = "3 of A Kind";
+            } else if (gotFlush(hand)) {
+                type = "Flush";
+            } else if ( gotStraight( hand )) {
+                type = "Straight";
+
+            }
+            return type;
+        }
+    </script>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 25% 25% 25%;
+            grid-template-rows: 100px 200px 15%;
+            grid-gap: 10px;
+            padding: 10px;
+        }
+
+        .grid-container > div {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+            background-color: yellow;
+        }
+        #button1 {
+            background-color: #33b5e5;
+            font-size: 20px;
+        }
+        #button2 {
+            background-color: #bbbbbb;
+            font-size: 20px;
+        }
+        #startButton {
+            background-color: #bbbbbb;
+            background-color: #33b5e5;
+            font-size: 20px;
+        }
+        #rolls, #wins, #tWin, #res {
+            height: 60px;
+            width: 60px;
+            border: 1px solid black;
+            background-color: #bbbbbb;
+            font-size: 19px;
+        }
+        #cardResults {
+            border: 1px solid black;
+        }
+        #winnings {
+            grid-column: 1 / span 3;
+        }
+    </style>
+</head>
+<body >
+<h1>Deal a Winner!</h1>
+<div class="grid-container">
+    <div id="card1"> Card1 </div>
+    <div id="card2"> Card2 </div>
+    <div id="card3"> Card3 </div>
+    <div id="cardResults"> Hand Results </div>
+    <div id="betArea"> Bet: <input type="number" id='bet' min="1" max="10" value="0"></div>
+    <div><button id="startButton" onClick="startGame()"> Start </button>
+        <button id="reset" onClick="resetGame()"> Reset </button></div>
+
+    <div id="winnings">
+        Rolls: <span id="rolls"> 0 </span>
+        Wins: <span id="wins"> 0 </span>
+        Winnings: <span id="tWin"> 0 </span>
+    </div>
+</div>
+</body>
+</html>

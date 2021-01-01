@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $( document ).ready(function() {
+        alert("Ready");
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://community-open-weather-map.p.rapidapi.com/weather?q=Chicago&callback=test&id=2172797&lang=null&units=%22metric%22%20or%20%22imperial%22&mode=xml%2C%20html",
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "7246518105msh18f628dae525d69p176dc5jsn5b01bb801a76",
+            "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
+        }
+    };
+
+    $.ajax(settings).done(function (response) {
+        alert("Bck");
+        console.log(response);
+    });
+    });
+</script>
+</body>
+</html>

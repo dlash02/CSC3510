@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // going to have 3 containers for data
+        //    Dice, gameState and UInput
+        // Dice, gameState and UInput
+        class Dice {
+            //In ES2019, private class fields are defined using a hash # prefix:
+            // private setter (can only be used within the class)
+            //https://www.sitepoint.com/javascript-private-class-fields/
+            //set #setX(x) {
+                //this.#x = x;
+            //}
+            #img = "";
+            #value = 0;
+            constructor(img, value) {
+                this.#img = img;   //private
+                this.#value = value;
+            }
+            get img() { return this.#img; }
+            set img(value) { this.#img = value; }
+            get value() { return this.#value; }
+            set value(v) { this.#value = v; }
+        }
+        class gameState {
+            //ToDo: Define this class
+            // Define a class with these 2 properties
+            //  # -> private field and must use get and set
+            #tWins = 0;  // Private -> must use getters and setters
+            #tMoney = 0;
+            // IntelliJ can help create Code->generate->constructor
+            constructor(tWins, tMoney) {
+                this.#tWins = tWins;
+                this.#tMoney = tMoney;
+            }
+
+            // Go to Code -> generate -> getter and setter
+            get tWins() { return this.#tWins; }
+            set tWins(value) { this.#tWins = value; }
+
+            get tMoney() { return this.#tMoney; }
+            set tMoney(value) { this.#tMoney = value; }
+        }
+        //let uInput =
+            //{ 'tWins' : 0,error : "", gotError : false, guess: null, bet: null }
+        class uInput {
+            //ToDo: Define this class
+            #error = "";
+            #gotError = false;
+            #bet = null;
+            #guess = null;
+            // Code->generate -> constructor
+            constructor(error, gotError, bet, guess) {
+                this.#error = error;
+                this.#gotError = gotError;
+                this.#bet = bet;
+                this.#guess = guess;
+            }
+
+            get error() { return this.#error; }
+            set error(value) { this.#error = value; }
+
+            get gotError() { return this.#gotError; }
+            set gotError(value) { this.#gotError = value; }
+
+            get bet() { return this.#bet; }
+            set bet(value) { this.#bet = value; }
+
+            get guess() { return this.#guess; }
+            set guess(value) { this.#guess = value; }
+        }
+        // These are the objects global to all of code
+        // A global data structure of game Dice
+        let gDice = [
+            new Dice( 'Die1.PNG', 1),
+            new Dice( 'Die2.PNG', 2),
+            new Dice( 'Die3.PNG', 3),
+            new Dice( 'Die4.PNG', 4),
+            new Dice( 'Die5.PNG', 5),
+            new Dice( 'Die6.PNG', 6),
+        ];
+        //die2Img = gDice[1].img;
+        // Global object of User Input
+        //constructor(error, gotError, bet, guess) {
+        let gUInput = new uInput("", false, 0, 0);
+        // Global object of game state
+        let gGameState = new gameState(0, 0);
+
+        function resetGame() {
+            // ToDo: set uInput all back to original value
+            // Update all the display areas to orginal value
+        }
+        function startGame() {
+            // totally reworked
+            alert("Starting");
+            gUInput.error = "";
+            gUInput.gotError = false;
+            //ToDo: setUserGuess( ); // sets the global Variable uInput for gues
+            setUserGuess();
+            //ToDo: setUserBet( ); // sets the global Variable uInput for bet
+            setUserBet();
+            alert( "OK and we will stop");
+            let resArea = document.getElementById("dieResults");
+            if ( gUInput.gotError){
+                 resArea.innerHTML= `<span style='color:red'> ${gUInput.error} </span>`
+                 alert("Error")
+            }  else {
+                resArea.innerHTML= `OK <span style='color:red'> ${gUInput.error} </span>`
+                alert("No Error");
+            }
+            //ToDo: // get the dice rolls
+            let r1 = getRoll();
+            let dice1 = gDice[r1];  // dice1 -> dice Object img and value
+            let r2 = getRoll();
+            let dice2 = gDice[r2]; // dice2 -> 2nd dice object
+            updateDie( dice1, dice2 );
+            let nWins = getNWins(  dice1, dice2);
+            gGameState.tWins += nWins;
+            //console.log(`tWins:${gGameState.tWins}`)
+            updateWins( nWins, gGameState.tWins);
+            gGameState.tMoney += setWinnings( nWins, gUInput.bet);
+            console.log(`nWins:${nWins} Money:${gGameState.tMoney}`);
+            updateWinnings();
+            updateResultsDisplay( nWins );
+        }
+        function updateResultsDisplay( nWins ) {
+            let resArea = document.getElementById("dieResults");
+            msg = `<b> Loser ct:${nWins}`;
+            if ( nWins > 0 ){
+                msg = `<b> Winner ct:${nWins}`;
+            }
+            resArea.innerHTML = msg;
+        }
+        function updateWinnings(  ) {
+            let winningsArea = document.getElementById("tWin");
+            winningsArea.innerHTML = `$ ${gGameState.tMoney}.00`;
+            alert(`TMONEY: ${gGameState.tMoney}`);
+
+        }
+        function setWinnings( nWins, bet) {
+                // Set up tMoney we won
+                //  RULE: Bet if either dice is the guess then you only win the bet
+                let gWinnings = 0;
+                if ( nWins > 0 ){
+                    gWinnings = parseInt(bet);
+                } else {
+                    //TODO: CHANGE THIS:
+                    // gWinnings = parseInt(bet);
+                    gWinnings -= parseInt(bet);
+                }
+                return gWinnings;
+        }
+        function updateWins(  nWins, totWins  ) {
+            // Update the display with the wins for this game
+            // Total game wins since last reset
+            let wDOM = document.getElementById("wins");
+            wDOM.innerHTML = `Wins:${totWins}`;
+
+            // wins for this roll
+            let wDieRes = document.getElementById("dieResults");
+            wDieRes.innerHTML = `RWins:${nWins}`;
+        }
+        function getNWins(  dice1, dice2){
+           let tWins = 0;
+           if( dice1.value == gUInput.guess ){
+              tWins += 1;
+           }
+           if( dice2.value == gUInput.guess ){
+               tWins += 1;
+           }
+           return tWins;
+        }
+        function updateDie( dice1, dice2 ){
+            // Update the display for the dice
+            // Only doing 1 thing
+            let d1DOM = document.getElementById("die1");
+            let d2DOM = document.getElementById("die2");
+            d1DOM.innerHTML = `<img src='imgs/${dice1.img}' height='50px' width='50px'>`
+            d2DOM.innerHTML = `<img src='imgs/${dice2.img}' height='50px'  width='50px'>`
+
+        }
+        function getRoll(){
+            let r1 = Math.floor( Math.random() * 6 ); // gen a ran numer 1-6
+            console.log( `roll1:${r1}`);
+            return r1;
+        }
+        function setUserGuess(){
+            // populate values -> global gUInput
+            // Manipuate the global container gUInput to hold user input
+            let guessObj = document.getElementById("guess");
+            gUInput.guess = guessObj.value; // sets into our global ob
+            if ( gUInput.guess === "" || isNaN( gUInput.guess)  ||
+                     gUInput.guess < 0 || gUInput.guess > 6 ){
+                // somethings wrong
+                gUInput.error += ` Bad Guess ${gUInput.guess}`;
+                gUInput.gotError = true;
+            }
+        }
+        function setUserBet(){
+            // Manipuate the global container gUInput to hold user input
+            let betObj = document.getElementById("bet");
+            gUInput.bet  = betObj.value; // sets into our global ob
+            if ( gUInput.bet === "" || isNaN( gUInput.bet)  ||
+                gUInput.bet < 0 || gUInput.bet > 10 ){
+                // somethings wrong
+                gUInput.error += ` Bad Bet ${gUInput.bet}`;
+                gUInput.gotError = true;
+            }
+        }
+    </script>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 25% 25% 25%;
+            grid-template-rows: 80px 200px 15%;
+            grid-gap: 10px;
+            padding: 10px;
+        }
+
+        .grid-container > div {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+            background-color: yellow;
+        }
+        #button1 {
+            background-color: #33b5e5;
+            font-size: 20px;
+        }
+        #button2 {
+            background-color: #bbbbbb;
+            font-size: 20px;
+        }
+        #startButton {
+            background-color: #bbbbbb;
+            background-color: #33b5e5;
+            font-size: 20px;
+        }
+        #rolls, #wins, #tWin, #res {
+            height: 60px;
+            width: 60px;
+            border: 1px solid black;
+            background-color: #bbbbbb;
+            font-size: 19px;
+        }
+        #dieResults {
+            border: 1px solid black;
+        }
+        #winnings {
+            grid-column: 1 / span 3;
+        }
+    </style>
+</head>
+<body >
+<h1>Guess at least 1 die!</h1>
+<div class="grid-container">
+    <div id="die1"> Die1 </div>
+    <div id="die2"> Die2 </div>
+    <div><button id="startButton" onClick="startGame()"> Start </button>
+    <button id="reset" onClick="resetGame()"> Reset </button></div>
+
+    <div id="dieResults"> Die Results </div>
+    <div id="guessArea"> Guess : <input type="number" id='guess' min="1" max="10" value="0"> </div>
+    <div id="betArea"> Bet: <input type="number" id='bet' min="1" max="10" value="0"></div>
+
+    <div id="winnings">
+        Rolls: <span id="rolls"> 0 </span>
+        Wins: <span id="wins"> 0 </span>
+        Winnings: <span id="tWin"> 0 </span>
+    </div>
+</div>
+</body>
+</html>

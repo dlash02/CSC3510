@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        class ShippingDest {
+            #city = "";
+            #cost = "";
+            constructor(city, cost) {
+                this.#city = city;
+                this.#cost = cost;
+            }
+            get city() { return this.#city; }
+            set city(value) { this.#city = value; }
+            get cost() { return this.#cost; }
+            set cost(v) { this.#cost = v; }
+        }
+        let sDest = {};
+        sDest['CHI'] = new ShippingDest('Chicago', 3);
+        sDest['NY'] = new ShippingDest('New York', 7.5);
+        sDest['LA'] = new ShippingDest('Los Angeles', 8.5);
+        // Add sCosts here
+        let sCost = {};
+        sCost.day1 = 6;
+        sCost.day2 = 4;
+        sCost.day3 = 2;
+        sCost.day4 = 1;
+        $(document).ready(function(){
+            $('#b1').click(function() {
+                //alert("Clcik" )
+                let item = 'NY';
+                //console.log(`cost:${sDest[item].cost}`);
+                //console.log(`city:${sDest[item].city}`);
+                let s = $("input:radio[name='sSpeed']:checked").val();
+                city = $('#city :selected').val();
+                //console.log(`shipping Cost:${sCost[s]}`);
+                //console.log(`city cost:${sDest[city].cost}`);
+                // add main logic here
+                // Defensive Programming <- Always check for error
+                let cCost = 0
+                let cName = '';
+                if ( sDest[city] ) {
+                    let obj = sDest[city];
+                    cCost = obj.cost;
+                    cName = obj.city;
+                } else {
+                    alert("Something is wrong")
+                }
+                let shippingCost = 0;
+                if( sCost[s]) {
+                    shippingCost = sCost[s];
+                } else {
+                    alert("Something is wrong with shipping ")
+                }
+                let totalCosts = cCost + shippingCost;
+                let oStr = `For <b>City:</b>${cName} Total Cost:${totalCosts}`;
+                $("#results").html( oStr ).css(
+                    {
+                        'color'  : "Blue",
+                        'background-color'  : "yellow",
+                        'width'  : "250px",
+                    });
+                // 1. See if Illinois or non-illinois is checked
+                //  2. Add 7% sales tax if Illinois or 5% otherwise
+                //  3. Show the total costs and the total tax in output
+            });
+        });
+    </script></head>
+<body>
+<form id='apple' name='apple'>
+    Shipping method?<br/>
+    <input type="radio"  name="sSpeed" value="day1" checked/> 1 Day
+    <input type="radio"  name="sSpeed" value="day2"/> 2 Day
+    <input type="radio"  name="sSpeed" value="day3"/> 3 Day
+    City <select id="city" name="city">
+    <option value='CHI'>Chicago</option>
+    <option value='NY'>New York</option>
+    <option value='LA'>Los Angles</option>
+</select>
+    <br />
+    State Tax
+    Illinois <input type="radio"  name="iTax" value="Y" checked/>
+    Non-Illinois <input type="radio"  name="iTax" value="N"/>
+    <br />
+    <button type="button" id="b1"> Calc Shipping</button>
+</form>
+<div id="results"></div>
+</body></html>
