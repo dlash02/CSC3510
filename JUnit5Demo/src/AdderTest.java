@@ -7,6 +7,6 @@ class AdderTest {
     @Test
     void getAdder(){
         Adder a = new Adder( 5, 10 );
-        assertEquals( 25, a.addIt());
+        assertEquals( 15, a.addIt());
     }
 }
