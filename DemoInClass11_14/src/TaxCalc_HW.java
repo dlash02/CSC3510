@@ -5,9 +5,10 @@ public class TaxCalc_HW {
     private String taxStatus;   // Set to either Single or Married these are the only 2 tax
                        //    status we will use
     private double adjustedGrossIncome = 0;
-    private double totalTaxOwed = 0.0;
+    private double totalTaxOwed = 0.0;   // this is purpose of the class
     private double standardDeduction = 0.0;
     private double dependentDeduction = 0.0;
+    // The pupose of this class is to set totalTaxOwed based on these input arguments
     public TaxCalc_HW(int dependents, double totalIncome, String taxStatus) {
         this.dependents = dependents;
         this.totalIncome = totalIncome;
