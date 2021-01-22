@@ -7,13 +7,20 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AdderTest1 {
     @Test
+    void checkAdderX(){
+        // Checks for positive integers ok
+        int x = 5;
+        int y = 1;
+        AddX a = new AddX( x );
+        assertEquals( 5, a.getX());
+    }
+    @Test
     void checkAdderPosInts(){
         // Checks for positive integers ok
         int x = 5;
         int y = 1;
         Adder a = new Adder( x, y );
         assertEquals( 6, a.doAdd() );
-
     }
     @Test
     void checkZerosForInput() {

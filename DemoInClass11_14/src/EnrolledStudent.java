@@ -56,4 +56,19 @@ public class EnrolledStudent {
    public void setScores(ArrayList<Double> scores) {
       this.scores = scores;
    }
+
+   public String getLetterGrade() {
+       double aver = getGradePercent();
+      String retGr = "F";
+      if ( aver >= 90 ) {
+          retGr = "A";
+       } else if ( aver >= 80 ) {
+         retGr = "B";
+      }  else if ( aver >= 70 ) {
+         retGr = "C";
+      }   else if ( aver >= 60 ) {
+        retGr = "D";
+      }
+      return retGr;
+   }
 }

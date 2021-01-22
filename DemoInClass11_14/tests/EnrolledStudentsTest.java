@@ -2,8 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class EnrolledStudentsTest {
     @Test
@@ -16,9 +15,8 @@ public class EnrolledStudentsTest {
     }
     @Test
     void testNormalGradeCalc(){
-        // Test will ensure scores of 80, 85, 90 => 85%
-        String id = "007";
         ArrayList<Double> grades = new ArrayList<>();
+        String id = "007";
         grades.add( 80.0 );
         grades.add( 85.0 );
         grades.add( 90.0 );
@@ -55,6 +53,52 @@ public class EnrolledStudentsTest {
         ArrayList<Double> grades = new ArrayList<>();
         EnrolledStudent s = new EnrolledStudent("Pete", "RePete", id, grades);
         Double gr = s.getGradePercent();
+        assertTrue( Double.isNaN( gr ) );
         System.out.printf("\n gr:%s", gr);
     }
+    // Add a method that returns A, B, C, D or F based on the percentage
+    // 1. Write a test - make the test fail
+    // 2. Write code to make it true
+    // 3. refactor
+    @Test
+    void testForAGrade() {
+        String id = "007";
+        ArrayList<Double> grades = new ArrayList<>();
+        grades.add(100.0);
+        grades.add(90.0);
+        grades.add(95.0);
+        EnrolledStudent s = new EnrolledStudent("Pete", "RePete", id, grades);
+        Double gr = s.getGradePercent();
+        String letterGr = s.getLetterGrade();
+        assertEquals( letterGr, "A");
+    }
+    @Test
+    void testForBGrade() {
+        // Test for "b" insside getLetterGrade();
+        String id = "007";
+        ArrayList<Double> grades = new ArrayList<>();
+        grades.add(70.0);
+        grades.add(80.0);
+        grades.add(90.0);
+        EnrolledStudent s = new EnrolledStudent("Pete", "RePete", id, grades);
+        //Double gr = s.getGradePercent();
+        // Add 2 -3 tests to ensure 80
+        //ArrayList<Double> grade2 = new ArrayList<>();
+        String letterGr = s.getLetterGrade();
+        //assertEquals( letterGr, "B");
+        //letterGr = s.getLetterGrade();
+        assertEquals( letterGr, "B");
+    }
+    @Test
+    void testForCGrade() {
+        String id = "007";
+        ArrayList<Double> grades = new ArrayList<>();
+        grades.add(70.0);
+        grades.add(75.0);
+        grades.add(65.0);
+        EnrolledStudent s = new EnrolledStudent("Pete", "RePete", id, grades);
+        String letterGr = s.getLetterGrade();
+        assertEquals( letterGr, "C");
+    }
+
 }
