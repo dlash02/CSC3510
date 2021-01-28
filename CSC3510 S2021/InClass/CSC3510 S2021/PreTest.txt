@@ -1,0 +1,86 @@
+﻿PreCourse: _______________________ testing is intended to show that various sub-systems work together properly
+A) Regression
+B) Integration
+C) Requirements
+D) Black Box
+E) Load
+F) No Idea
+ANSWER: B
+CSC4350 PreCourse: This type of testing is verification w/o peering into system’s internal structures
+A) Regression
+B) Integration
+C) Requirements
+D) Black box
+E) Load
+F) No Idea
+ANSWER: D
+CSC4350 PreCourse: This type of testing is designed to check verify that changes have not broken previously working code:
+A) Regression Testing
+B) Integration Testing
+C) Load Testing
+D) Release Testing
+E) Black Box Testing
+F) No Idea
+ANSWER: A
+One difference between Scrum and Extreme Programming (EP) is ______
+A) EP emphasizes several best practices such as TDD and paired programming
+B) EP's life cycle model is more structured than Scrum
+C) EP does not utilize sprints
+D) EP does not have daily stand up meetings
+E) No Idea
+ANSWER: A
+what are the basic TDD steps?
+A) Write a failing test, add source code that will pass the test, refactor
+B) run all the tests, refactor the code add new code
+C)  develop a new feature, refactor the code , add new code, pass all the tests 
+D) develop a suite of tests, add code to solve the problem, retest all the code 
+E) No Idea
+ANSWER: A
+Which is NOT a practice of extreme programming?
+A) continuous refactoring of code as small improvements are found
+B) all developers should capable of working any area of the system
+C) an on site customer representative  should be available full time
+D) developers should work together in small teams or 3 or 4 people
+E) No Idea
+ANSWER: D
+One reason that node.js is very fast is 
+A) Its asynchronous design is non-blocking
+B) Its language is tightly compiled for fast execution 
+C) Its language  kernel is small and quick 
+D) It can support many simultaneous concurrent processes. 
+E) No Idea
+ANSWER: A
+What is continuous integration(CI)?
+A. Merging everyone's code together, building it, several times a day. 
+B. Merging source code bases together automatically. 
+C. Automatically running unit tests against an increasingly larger code base
+D.  Automatically sending code updates to customer sites as changes occur 
+E) No Idea
+ANSWER: A
+What happens when a  continuous integration(CI) fails?
+A.  The entire development team drops what they are doing and to fix the problem.
+B.  A set of new tests are developed. 
+C. All customers are notified immediately until an update is created and deployed. 
+D.  The dev teams hold a reintegrationg meeting to review the test plan
+E) No Idea
+ANSWER: A
+What is a weakness of branch coverage testing?
+A. Multi-conditional expressions are not covered
+B. Conditional expressions are too hard to completely test 
+C. Test coverage tools do include branch coverage tests
+D. Conditional branches cannot be reliably tested without exensitve tooling
+E. No Idea
+ANSWER: A
+What is the Test Driven Development Cycle:
+A. Write a test, observer it fail, write code and repeat
+B. Write code, develop working tests with failure and non-failure options, run the tests and repeat
+C. Create a test plan, write the needed tests, write the code and run the tests
+D. Create a test plan, write code, implement a corresponding test fromt he plan and repeat
+E. No Idea
+Which of the following is NOT a claimed benefit of TDD?
+A. More complete test coverage
+B. Less defects in the code
+C. Reduced Debugging effort
+D. More consistent focus on quality 
+E. No Idea
+

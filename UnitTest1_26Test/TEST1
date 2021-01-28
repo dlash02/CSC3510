@@ -1,0 +1,122 @@
+_______________________ testing is intended to show that various sub-systems work together properly
+A. Regression
+B. Integration
+C. Requirements
+D. Black Box
+E. Load
+ANSWER: B
+This type of testing is verification w/o peering into system’s internal structures
+A. Regression
+B. Integration
+C. Requirements
+D. Black box
+E. Load
+ANSWER: D
+This type of testing is designed to check verify that changes have not broken previously working code:
+A. Regression Testing
+B. Integration Testing
+C. Load Testing
+D. Release Testing
+E. Black Box Testing
+F) No Idea
+ANSWER: A
+One difference between Scrum and Extreme Programming (EP) is ______
+A. EP emphasizes several best practices such as TDD and paired programming
+B. EP's life cycle model is more structured than Scrum
+C. EP does not utilize sprints
+D. EP does not have daily stand up meetings
+ANSWER: A
+What are the basic TDD steps?
+A) Write a failing test, add source code that will pass the test, refactor
+B) run all the tests, refactor the code add new code
+C)  develop a new feature, refactor the code , add new code, pass all the tests 
+D) develop a suite of tests, add code to solve the problem, retest all the code 
+E) No Idea
+ANSWER: A
+Which is NOT a practice of extreme programming?
+A) continuous refactoring of code as small improvements are found
+B) all developers should capable of working any area of the system
+C) an on site customer representative  should be available full time
+D) developers should work together in small teams or 3 or 4 people
+E) No Idea
+ANSWER: D
+One reason that node.js is very fast is 
+A) Its asynchronous design is non-blocking
+B) Its language is tightly compiled for fast execution 
+C) Its language  kernel is small and quick 
+D) It can support many simultaneous concurrent processes. 
+E) No Idea
+ANSWER: A
+What is continuous integration(CI)?
+A. Merging everyone's code together, building it, several times a day.
+B. Merging source code bases together automatically.
+C. Automatically running unit tests against an increasingly larger code base
+D.  Automatically sending code updates to customer sites as changes occur
+ANSWER: A
+What happens when a  continuous integration(CI) fails?
+A.  The entire development team drops what they are doing and to fix the problem.
+B.  A set of new tests are developed.
+C. All customers are notified immediately until an update is created and deployed.
+D.  The dev teams hold a reintegrationg meeting to review the test plan
+E) No Idea
+ANSWER: A
+What is a weakness of branch coverage testing?
+A. Multi-conditional expressions are not covered
+B. Conditional expressions are too hard to completely test
+C. Test coverage tools do include branch coverage tests
+D. Conditional branches cannot be reliably tested without exensitve tooling
+ANSWER: A
+What is the Test Driven Development Cycle:
+A. Write a test, observer it fail, write code and repeat
+B. Write code, develop working tests with failure and non-failure options, run the tests and repeat
+C. Create a test plan, write the needed tests, write the code and run the tests
+D. Create a test plan, write code, implement a corresponding test fromt he plan and repeat
+ANSWER: A
+Which of the following is NOT a claimed benefit of TDD?
+A. More complete test coverage
+B. Less defects in the code
+C. Reduced Debugging effort
+D. More consistent focus on quality
+ANSWER: A
+Verification involves which of the following:
+1 Helps to check the Quality of the built product
+2 Helps to check that we have built the right product.
+3 Helps in developing the product
+4 Monitoring tool wastage and obsoleteness.
+A. Options i,ii,iii,iv are true.
+B. i is true and ii,iii,iv are false
+C. i,ii,iii are true and iv is false
+D. ii is true and i,iii,iv are false.
+ANSWER:B
+The Switch is switched off once the temperature falls below 18 and then it is
+turned on when the temperature is more than 21. When the temperature is more than
+Identify the Equivalance values which belong to the same class.
+A. 12,16,22
+B. 24,27,17
+C. 22,23,24
+D. 14,15,19
+ANSWER:C
+Complete statement and branch coverage means:
+A. That you have tested every statement in the program.
+B. That you have tested every statement and every branch in the program.
+C. That you have tested every IF statement in the program.
+D. That you have tested every combination of values of IF statements in the program
+ANSWER:B
+Given the following fragment of code, how many tests are required for 100%
+decision coverage?
+if width > length {
+  biggest_dimension = width
+  if height > width {
+      biggest_dimension = height
+   } else {
+      biggest_dimension = length
+   }
+   if height > length {
+    biggest_dimension = height
+   }
+}
+A. 3
+B. 4
+C. 2
+D. 1
+ANSWER: B
