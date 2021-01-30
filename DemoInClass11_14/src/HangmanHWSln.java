@@ -1,6 +1,8 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Random;
 
-public class HangmanHW {
+public class HangmanHWSln {
     private int nGuess=7; // The number of wrong guesses (default 7 )
     private ArrayList<String> inputWords; // Input list of valid words
     private String targetWord; // Word trying to be guessed in the current game
@@ -8,7 +10,7 @@ public class HangmanHW {
     private String currentWord; // this is the current word trying to be guessed (E.g., fishbowl );
     private String currentWordDisplayString; // This is the current word that is displayed during the game
                                      // E.g., *is*b*wl as the player is guessing it.
-    public HangmanHW(int nGuess, ArrayList<String> inputWords ){
+    public HangmanHWSln(int nGuess, ArrayList<String> inputWords ){
         this.nGuess = nGuess;
         this.inputWords = inputWords;
     }
@@ -29,16 +31,44 @@ public class HangmanHW {
         //       currentWord to either notebook, simple, salesdate ranomly
         // and updated usedWords
         currentWord = "";
+        boolean doNoHaveWord = true;
+        int s = inputWords.size();
+        if ( usedWords.size() == inputWords.size()) {
+            currentWord = "";
+        } else {
+            Random r = new Random();
+            while ( doNoHaveWord == true ) {
+                int rn = r.nextInt(s);
+                String w = inputWords.get( rn );
+                if ( usedWords.contains(w)){
+                    continue;
+                }
+                usedWords.add( w );
+                currentWord = w;
+                setInitialCurrentWordDisplay();
+                break;
+            }
+        }
     }
     public int guessLetter( char guess  ) {
-        // input: char guess -> the letter being guesses
-        // returns:  int nChanged ... number of letters being changed
-        // sets:  currentWordDisplayString to the changed letter
-        //    e.g. currentWordDisplayString = "*****"
-        //       guess = "p";
-        //     currentWordDisplayString will be set to  "*pp**"
+        System.out.printf("\ncurrentWds:%s", currentWord);
+        if ( currentWord.indexOf( guess)  == -1   ){
+            return -1;
+        }
         int nChange = 0;
-        currentWordDisplayString = "";
+        //System.out.printf("\ncwds:%s", currentWordDisplayString);
+        StringBuilder cw = new StringBuilder( currentWordDisplayString );
+        for( int i=0; i<currentWord.length(); i++ ){
+            char c = currentWord.charAt(i);
+            //System.out.printf("\nc:%s", c);
+            if ( c == guess ){
+                System.out.printf("\n changing :%s", c);
+                cw.setCharAt(i, c );
+                nChange++;
+            }
+        }
+        currentWordDisplayString = cw.toString();
+        System.out.printf("nChange:%s CurrentWord:%s", nChange, currentWordDisplayString);
         return nChange;
     }
     public void setInitialCurrentWordDisplay( ) {
@@ -69,4 +99,5 @@ public class HangmanHW {
         //   it also sets
         return "";
     }
+
 }

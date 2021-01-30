@@ -45,6 +45,45 @@ public class HangmanHWTests {
         assertEquals("apple", w);
     }
     @Test
+    void canSetNumberChanged() {
+        int nGuess = 7;
+        HangManGet1WordImpl iw = new HangManGet1WordImpl();
+        ArrayList<String> inWords = iw.getInputWords();
+        HangmanHW hm = new HangmanHW(nGuess, inWords);
+        String w = hm.getUniqueWord();
+        System.out.printf("\n w=%s", w);
+        int c = hm.guessLetter('p');
+        //System.out.printf("\nW=%s", w);
+        assertEquals(c, 2);
+    }
+    @Test
+    void cansetDisplayString() {
+        int nGuess = 7;
+        HangManGet1WordImpl iw = new HangManGet1WordImpl();
+        ArrayList<String> inWords = iw.getInputWords();
+        HangmanHW hm = new HangmanHW(nGuess, inWords);
+        String w = hm.getUniqueWord();
+        System.out.printf("\n w=%s", w);
+        int c = hm.guessLetter('p');
+        String ds = hm.getCurrentWordDisplayString();
+        //System.out.printf("\nW=%s", w);
+        assertEquals( "*pp**", ds );
+    }
+    @Test
+    void cansetDisplayString2Guesses() {
+        int nGuess = 7;
+        HangManGet1WordImpl iw = new HangManGet1WordImpl();
+        ArrayList<String> inWords = iw.getInputWords();
+        HangmanHW hm = new HangmanHW(nGuess, inWords);
+        String w = hm.getUniqueWord();
+        System.out.printf("\n w=%s", w);
+        int c = hm.guessLetter('p');
+        c = hm.guessLetter('l');
+        String ds = hm.getCurrentWordDisplayString();
+        //System.out.printf("\nW=%s", w);
+        assertEquals( "*ppl*", ds );
+    }
+    @Test
     void testGetMoreWordsThanOnTheLst(){
         int nGuess = 7;
         HangManGet2WordsImpl iw = new HangManGet2WordsImpl();
