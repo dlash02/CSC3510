@@ -1,34 +1,74 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class HangmanHW {
-    int nGuess=7;
-    ArrayList<HangManWordsHW> inputWords;
-    String targetWord; // This is the word trying to be guessed
-    String currentString; // This is the current String of the game
-    // (E.g,. for the word apple it would be set to ***** after guessing 'p' it would *pp**)
-    Set<String> usedWords;
-
-    public HangmanHW(int nGuess, ArrayList<HangManWordsHW> inputWords ){
+    private int nGuess=7; // The number of wrong guesses (default 7 )
+    private ArrayList<String> inputWords; // Input list of valid words
+    private String targetWord; // Word trying to be guessed in the current game
+    private HashSet<String> usedWords = new HashSet<>();  // Current usedWords of past games
+    private String currentWord; // this is the current word trying to be guessed (E.g., fishbowl );
+    private String currentWordDisplayString; // This is the current word that is displayed during the game
+                                     // E.g., *is*b*wl as the player is guessing it.
+    public HangmanHW(int nGuess, ArrayList<String> inputWords ){
         this.nGuess = nGuess;
         this.inputWords = inputWords;
     }
-    public String getUniqueWord( int inputDifficult ){
-        // This method must go through the inputWords and return one that has not been used for the
-        // level of difficulty
-        //  for example, if inputDifficult = 1 and the inputWords are the following
-        //    Banana 1
-        //    Paper  1
-        //    Scissors  1
-        //    pattern  1
-        //    notebook  2
-        //    simple  2
-        //    salesdate  2
-        // Then the method wold return any random word with difficulty 1 that has not been used already
-        //  (that is not in usedWords);
-        return "";
+    public int getNGuess( ) {
+        return nGuess;
+    }
+    public void setUniqueWord( ) {
+        //  description: go through the inputWords and return one that has not been used before
+        //
+        // class properties:
+        //    inputWords - an arrayList of valid HangMan words
+        //  for example, if
+        //  inputWords are
+        //        Banana, Paper, Scissors, Rock, Pattern, notebook, simple, salesdate
+        //  usedWords are
+        //        Banana, Paper, Scissors, Rock, Pattern
+        // Then Sets
+        //       currentWord to either notebook, simple, salesdate ranomly
+        // and updated usedWords
+        currentWord = "";
+        boolean doNoHaveWord = true;
+        int s = inputWords.size();
+        if ( usedWords.size() == inputWords.size()) {
+            currentWord = "";
+        } else {
+            Random r = new Random();
+            while ( doNoHaveWord == true ) {
+                int rn = r.nextInt(s);
+                String w = inputWords.get( rn );
+                if ( usedWords.contains(w)){
+                    continue;
+                }
+                usedWords.add( w );
+                currentWord = w;
+                setInitialCurrentWordDisplay();
+                break;
+            }
+        }
+    }
+    public void guessLetter( char guess  ) {
+        if ( currentWordDisplayString.indexOf( guess) > 0  ){
+
+        }
+    }
+    public void setInitialCurrentWordDisplay( ) {
+        int sz = currentWord.length();
+        currentWordDisplayString = "";
+        for( int i=0; i<sz; i++ ){
+            currentWordDisplayString += "*";
+        }
+    }
+    public String getInitialCurrentWordDisplay( ) {
+        setInitialCurrentWordDisplay();
+        return currentWordDisplayString;
+    }
+    public String getUniqueWord( ){
+        setUniqueWord();
+        // Returns the current word
+
+        return currentWord;
     }
     public String guessLetterInWord( char guessLetter ) {
         // method looks through the current targetWord and sets currentString

@@ -11,7 +11,7 @@ class EnrolledStudentsClassPrepTest {
         ArrayList<Double> grades = new ArrayList<>();
         //EnrolledStudentClassPrep(String fName, String lName, String id, ArrayList<Double> grades) {
          EnrolledStudentClassPrep s = new EnrolledStudentClassPrep("Pete", "Repete", id, grades );
-        assertEquals("Pete", s.getfName());
+         assertEquals("Pete", s.getfName());
     }
 
 }
