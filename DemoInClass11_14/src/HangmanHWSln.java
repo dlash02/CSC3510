@@ -49,10 +49,15 @@ public class HangmanHWSln {
                 break;
             }
         }
+        setInitialCurrentWordDisplay();
+    }
+    public int getnGuess( ) {
+        return nGuess;
     }
     public int guessLetter( char guess  ) {
-        System.out.printf("\ncurrentWds:%s", currentWord);
+        System.out.printf("\n(guessletter) currentWds:%s displayString:%s", currentWord, currentWordDisplayString);
         if ( currentWord.indexOf( guess)  == -1   ){
+            nGuess -= 1;
             return -1;
         }
         int nChange = 0;
@@ -68,7 +73,7 @@ public class HangmanHWSln {
             }
         }
         currentWordDisplayString = cw.toString();
-        System.out.printf("nChange:%s CurrentWord:%s", nChange, currentWordDisplayString);
+        System.out.printf("-------nChange:%s CurrentWordDisplayString:%s", nChange, currentWordDisplayString);
         return nChange;
     }
     public void setInitialCurrentWordDisplay( ) {
@@ -78,10 +83,10 @@ public class HangmanHWSln {
             currentWordDisplayString += "*";
         }
     }
-    public String getInitialCurrentWordDisplay( ) {
-        setInitialCurrentWordDisplay();
-        return currentWordDisplayString;
-    }
+    //public String ( ) {
+        //setInitialCurrentWordDisplay();
+        //return currentWordDisplayString;
+    //}
     public String getCurrentWordDisplayString( ) {
         return currentWordDisplayString;
     }

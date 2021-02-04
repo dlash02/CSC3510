@@ -25,13 +25,31 @@ public class HangmanHWTests {
         assertTrue( w.equals("apple") || w.equals("sauce"));
     }
     @Test
+    void willNotPickSameWordTwice(){
+        int nGuess = 7;
+        HangManGet2WordsImpl iw = new HangManGet2WordsImpl();
+        ArrayList<String> inWords = iw.getInputWords();
+        HangmanHWSln hm = new HangmanHWSln( nGuess, inWords);
+        String w = hm.getUniqueWord();
+        if ( w.equals("apple")) {
+            System.out.printf("\nfl1:w:%s", w );
+            w = hm.getUniqueWord();
+            assertEquals("sauce", w );
+        } else {
+            System.out.printf("\nfl2:w:%s", w );
+            w = hm.getUniqueWord();
+            assertEquals("apple", w );
+        }
+    }
+    @Test
     void canSetWordDisplayInitially() {
         int nGuess = 7;
         HangManGet2WordsImpl iw = new HangManGet2WordsImpl();
         ArrayList<String> inWords = iw.getInputWords();
-        HangmanHW hm = new HangmanHW(nGuess, inWords);
+        HangmanHWSln hm = new HangmanHWSln(nGuess, inWords);
         String w = hm.getUniqueWord();
-        w = hm.getUniqueWord();
+        System.out.printf("\nw:%s", w);
+        w = hm.getCurrentWordDisplayString();
         assertEquals("*****", w );
     }
     @Test

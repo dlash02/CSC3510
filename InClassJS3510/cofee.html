@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" type="text/css" href="css/coffeeStyles.css">
+    <script src="js/coffee.js"> </script>
+</head>
+<body>
+<header> Al's Coffee <img id="img" src="img/coffee.jpg"></header>
+<div class="grid-container">
+    Select Item:
+    <select id="item" size="2">
+        <option value='0'> Regular Coffee </option>
+        <option value="1"> Latte </option>
+        <option value='2'> Mocha Latte </option>
+        <option value='3'> Frapacino </option>
+        <option value='4'> Expresso </option>
+    </select>
+</div>
+<button type="button" id="getCost" onClick="calcCost()"> Get The Cost</button>
+<div id="results">
+    Cost <span id="costResults"> 0 </span>
+</div>
+</body>
+</html>

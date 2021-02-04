@@ -5,6 +5,5 @@ describe('Array', function() {
         let myList = [];
         assert.equal( myList.length, 0);
     });
-
     // We can have more its here
 });

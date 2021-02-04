@@ -1,0 +1,3 @@
+function calcCost(){
+    alert("hello")
+}
