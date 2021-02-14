@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc3e1e75-e680-4cf6-b116-b0e1eb470b2c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../nodeNew/.idea/nodeNew.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSC3510 S2021/00CourseNotesFormat  MY NOTES CSC3510 TU TH.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../CSC3510 S2021/00CourseNotesFormat  MY NOTES CSC3510 TU TH.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSC3510 S2021/HW/Write a class called hangman that implements that basic options for the hangman game.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../CSC3510 S2021/HW/Write a class called hangman that implements that basic options for the hangman game.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSC3510 S2021/Lectures/05 JS Intro-review.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../CSC3510 S2021/Lectures/05 JS Intro-review.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSC3510 S2021/Lectures/JS ChaiAndHTML_JS JavaScript VII.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../CSC3510 S2021/Lectures/JS ChaiAndHTML_JS JavaScript VII.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSC3510 S2021/Lectures/JS UdemTestingMocha1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../CSC3510 S2021/Lectures/JS UdemTestingMocha1.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../InClassJS3510/js/gradeCalc.js" beforeDir="false" afterPath="$PROJECT_DIR$/../InClassJS3510/js/gradeCalc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../InClassJS3510/js/taxCalc.js" beforeDir="false" afterPath="$PROJECT_DIR$/../InClassJS3510/js/taxCalc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../InClassJS3510/taxCalculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/../InClassJS3510/taxCalculator.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -4,7 +4,8 @@ class Grades {
     errorString = "";
     gotError = false;
     constructor( gList ){
-        this.gradeListStr = gList.split('\n');
+        //this.gradeListStr = gList.split('\n');
+        this.gradeListStr = gList.split('\s+');
         console.log(`g1=${this.gradeListStr}`);
         this.gradesOK();
     }
