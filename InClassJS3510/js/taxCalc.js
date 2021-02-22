@@ -56,7 +56,7 @@ $(document).ready( function() {
         let deductions = $("#deduct").val();
         let nDed = checkDeduction( deductions );
 
-        let adjGross = getAdjGross( nSal, nDed);
+        let adjGross = getAdjGross( nSal.val, nDed);
         let taxOwed = getTaxOwed( adjGross );
         console.log(`adjGross=${adjGross}`);
         console.log(`taxOwed=${taxOwed}`);

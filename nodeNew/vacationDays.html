@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grade calculator</title>
+    <link rel="stylesheet" type="text/css" href="css/gradeStyles.css">
+    <script src="js/gradeCalc.js"> </script>
+</head>
+<body>
+<header> Vacation Days Calculator </header>
+    <div class="grid-container">
+        <div class="gradeLabel"> Years Service: </div>
+        <div class="grade">  <input type="number" id="years" min="0" max="100"> </div>
+
+        <div class="gradeLabel"> Age: </div>
+        <div class="grade">  <input type="number" id="g2" min="0" max="100"> </div>
+
+    </div>
+<button type="button" id='button1' onClick="calcGrades()"> Calc GPA </button>
+<div id="results"> Vacation Days Here</div>
+</body>
+</html>

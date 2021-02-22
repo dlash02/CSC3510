@@ -25,9 +25,9 @@ function checkSalary( inSal ) {
         'error': "",
         'errorFlag': false
     };
-    if ( inSal == null ) {
-        retVal.error = "Null value in inSal"
-        retVal.errorFLag = true;
+    if ( inSal == null || inSal < 0) {
+        retVal.error = "Null or Negative value in inSal"
+        retVal.errorFlag = true;
     } else {
        retVal.val = parseInt(inSal);
     }
@@ -56,7 +56,6 @@ function getTaxOwed(adjGross) {
     } else {
         adjGross = adjGross * .1;
     }
-
     return ( Math.round( adjGross*100)/100);
 }
 
@@ -64,13 +63,18 @@ $(document).ready( function() {
     $("#startButton").click( function() {
         let salary = $("#salary").val();
         let nSal = checkSalary( salary );
-        let deductions = $("#deduct").val();
-        let nDed = checkDeduction( deductions );
+        let taxOwed = 0;
+        if ( nSal.errorFlag) {
+            taxOwed = "Error Bad Salary";
+        } else {
+            let deductions = $("#deduct").val();
+            let nDed = checkDeduction(deductions);
 
-        let adjGross = getAdjGross( nSal, nDed);
-        let taxOwed = getTaxOwed( adjGross );
-        console.log(`adjGross=${adjGross}`);
-        console.log(`taxOwed=${taxOwed}`);
+            let adjGross = getAdjGross(nSal.val, nDed);
+            taxOwed = getTaxOwed(adjGross);
+            console.log(`adjGross=${adjGross}`);
+            console.log(`taxOwed=${taxOwed}`);
+        }
         $("#taxOwed").html( taxOwed );
         $("#taxable").html( adjGross );
         console.log("Done");

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grade calculator</title>
+    <link rel="stylesheet" type="text/css" href="css/gradeStyles.css">
+    <script src="js/gradeCalc.js"> </script>
+</head>
+<body>
+<header> <img src="img/calc.jpg" id="img"> Grade Calculator </header>
+Enter Grades:
+    <div class="grid-container">
+        <div class="gradeLabel"> G1: </div>
+        <div class="grade">  <input type="number" id="g1" min="0" max="100"> </div>
+
+        <div class="gradeLabel"> G2: </div>
+        <div class="grade">  <input type="number" id="g2" min="0" max="100"> </div>
+
+        <div class="gradeLabel"> G3: </div>
+        <div class="grade">  <input type="number" id="g3" min="0" max="100"> </div>
+
+    </div>
+<button type="button" id='button1' onClick="calcGrades()"> Calc GPA </button>
+<div id="results"> Your GPA HERE </div>
+</body>
+</html>
