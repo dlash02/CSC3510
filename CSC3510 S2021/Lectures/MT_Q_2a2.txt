@@ -1,0 +1,103 @@
+Which is not a black box testing technique
+A. Equivalence partition
+B. Decision tables
+C. Transaction diagrams
+D. Decision testing
+ANSWER: D
+What is an equivalence partition (also known as an equivalence class)?
+A. A set of test cases for testing classes of objects
+B. An input or output range of values such that only one value in the range becomes a testcase
+C. An input or output range of values such that each value in the range becomes a test case
+D. An input or output range of values such that every tenth value in the range becomes a test case.
+ANSWER: C
+Q. 122: One of the fields on a form contains a text box which accepts numeric values in the range of 18 to 25. Identify the invalid Equivalance class
+A. 17
+B. 19
+C. 24
+D. 21
+ANSWER: A
+Exhaustive Testing is
+A. Is impractical but possible
+B. Is practically possible
+C. Is impractical and impossible
+D. Is always possible
+ANSWER: A
+What is the disadvantage of Black Box Testing
+A. Chances of having repetition of tests that are already done by programmer.
+B. The test inputs needs to be from large sample space.
+C. It is difficult to identify all possible inputs in limited testing time. So writing test cases is slow and difficult
+D. All above
+ANSWER:D 
+How much percentage of the life cycle costs of a software are spent on maintenance.
+A. 10%
+B. 30%
+C. 50%
+D. 70%
+ANSWER:D 
+Verification can be termed as 'Are we building the product right?"
+A. True
+B. False
+ANSWER:A
+How much testing is enough?
+A. This question is impossible to answer
+B. This question is easy to answer
+C. The answer depends on the risk for your industry, contract and special requirements
+D. This answer depends on the maturity of your developers
+ANSWER: C
+One Key reason why developers have difficulty testing their own work is :
+A. Lack of technical documentation
+B. Lack of test tools on the market for developers
+C. Lack of training
+D. Lack of Objectivity
+ANSWER: D
+Boundary value testing
+A. Is the same as equivalence partitioning tests
+B. Test boundary conditions on, below and above the edges of input and output equivalence classes
+C. Tests combinations of input circumstances
+D. Is used in white box testing strategy
+ANSWER:B
+An input field takes the year of birth between 1900 and 2004
+The boundary values for testing this field are
+A. 0,1900,2004,2005
+B. 1900, 2004
+C. 1899,1900,2004,2005
+D. 1899, 1900, 1901,2003,2004,2005
+ANSWER: C
+Inspections can find all the following except
+A. Variables not defined in the code
+B. Spelling and grammar faults in the documents
+C. Requirements that have been omitted from the design documents
+D. How much of the code has been covered
+ANSWER: D
+Equivalence partitioning is:
+A. A black box testing technique used only by developers
+B. A black box testing technique than can only be used during system testing
+C. A black box testing technique appropriate to all levels of testing
+D. A white box testing technique appropriate for component testing
+ANSWER: C
+Verification is:
+A. Checking that we are building the right system
+B. Checking that we are building the system right
+C. Performed by an independent test team
+D. Making sure that it is what the user really wants
+ANSWER: B
+Order numbers on a stock control system can range between 10000 and 99999 inclusive. Which of the following inputs might be a result of designing tests for only valid equivalence classes and valid boundaries:
+A. 1000, 5000, 99999
+B. 9999, 50000, 100000
+C. 10000, 50000, 99999
+D. 10000, 99999
+E. 9999, 10000, 50000, 99999, 10000
+ANSWER: C
+Error guessing is best used
+A. As the first approach to deriving test cases
+B. After more formal techniques have been applied
+C. By inexperienced testers
+D. After the system has gone live
+E. Only by end users
+ANSWER: B
+Benefits of Independent Testing
+A. Independent testers are much more qualified than Developers
+B. Independent testers see other and different defects and are unbiased.
+C. Independent Testers cannot identify defects.
+D. Independent Testers can test better than developers
+ANSWER: B

@@ -1,0 +1,77 @@
+ "owners": [
+      {
+         "id": 1,
+         "name": "Amy",
+         "pets": {
+            "cats": [
+               {
+                  "name": "Fluffy",
+                  "age": 2,
+                  "breed": "Persian"
+               },
+               {
+                  "name": "Mister Whiskers",
+                  "age": 4,
+                  "breed": "Siamese"
+               }
+            ],
+            "dogs": [
+               {
+                  "name": "Spot",
+                  "age": 3,
+                  "breed": "Labrador Retriever"
+               }
+            ]
+         }
+      },
+      {
+         "id": 2,
+         "name": "Bob",
+         "pets": {
+            "cats": [
+               {
+                  "name": "Galadriel",
+                  "age": 2,
+                  "breed": "Ragdoll"
+               },
+               {
+                  "name": "Gandalf",
+                  "age": 3,
+                  "breed": "Ragdoll"
+               }
+            ]
+         }
+      },
+      {
+         "id": 3,
+         "name": "Carol",
+         "pets": {
+            "cats": [
+               {
+                  "name": "D'Artagnan",
+                  "age": 5,
+                  "breed": "Persian"
+               }
+            ],
+            "dogs": [
+               {
+                  "name": "Moe",
+                  "age": 3,
+                  "breed": "Border Collie"
+               },
+               {
+                  "name": "Fred",
+                  "age": 3,
+                  "breed": "Shih Tzu"
+               },
+               {
+                  "name": "Penelope",
+                  "age": 4,
+                  "breed": "Great Dane"
+               }
+            ]
+         }
+      }
+   ]
+}
+

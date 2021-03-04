@@ -6,7 +6,7 @@ public class driveHashMapReview {
         // JavaScript / PHP -> associative arrays
         // HashMaps -> Java, C#
         // Maps -> C++
-        // Normal or seuqential array or index
+        // Normal or sequential array or index
         int[] myList = new int[14];
         myList[0] = 10;
         myList[1] = 10;

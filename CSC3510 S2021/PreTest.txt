@@ -120,4 +120,104 @@ B. 4
 C. 2
 D. 1
 ANSWER: B
+One advantage of the waterfall software development model (over incremental) is
+A. Testing is easier to implement
+B. It is higly structured and well defined 
+C. It generates more predictable results 
+D. It produces code releases faster
+ANSWER: B
+The statement "Custoerm collaboration Over Contract Negotiation" is one of:
+A. The agile principles
+B. The waterfall ideals
+C. The agile values
+D. A fundamental ideal in software project management
+ANSWER C
+If while interviewing, a manager says: "We are an agile development shop", it more than likley indicates
+A. They have a specific Software development lifecyle that they use
+B. They likely develop code using paired programming and continuous integration
+C. They produce release on a specific lifecycle schedule
+D. They subscrible to the mindset of the agile values and principles
+ANSWER: D
+One difference between Scrum and Exptreme Programming is: 
+A. During a Scrum sprint no additional work can be added except by the team 
+B. During an EP sprint, the customer arranges the priorities
+C. During EP, the voice of the customer is provided by a product owner
+D. The Scrum Sprint requires an extra test plan to be completed during the sprint
+ANSWER: A
+One of the practices of Extreme Programming is
+A. A proxy for the customer should be present at all code testing
+B. Code should be reviewed constantly by using paired programming
+C. Code should be integrated into the load weekly
+D. Code inspections should be carried out daily
+ANSWER: B
+According to our discussions, within Extreme Programming, continuous integration is a way to:
+A. A way to build the product so that it can be deployed to different evnironments
+B. A quick way to  state the current state of the development
+C. A way to understand the customer requirements with the context of the current sprint
+D. Provide feedback that the project is staying on its course
+ANSWER: D
+In comparing Scrum to Expreme Programming (EP)
+A. EP has more strict development practices than Scrum
+B. Scrum has more strict development practices than EP
+C. The use about the same development proactices
+D. Scrum uses the development practices to product code in tighter more controlled sprints
+ANSWER: A
+Which of the following are all componets of the user story format we discussed
+A. Openning sentance, specific requirement number, acceptance criteria
+B. Specific requirement number, estimatation of work and development plan
+C. Statement of use, description of customer environment and specific requirement
+D. Openning sentance, additional detail, acceptance criteria
+ANSWER: D
+With the EP model, an epic is
+A. A potentially deliverable piece of code
+B. A collection of user stories
+C. A written description of a master user requirement
+D. A collection of tests that match the user stories
+ANSWER: B
+The basic steps of TDD are:
+A. Write a peice of code, develop tests and repeat
+B. Develop a unit test, write code that passes, refactor code
+C. Read existing code, develop tests and refine the code
+D. Develop a  method, write several tests to stress the code, write the next method
+ANSWER: B
+One claimed beneift of TDD is:
+A. A deeper and earlier understanding of requirements
+B. Faster development effort
+C. Better software design through tests required
+D. Better coordination between the test team and development team
+ANSWER: A
+During the practice of continous integration two essentials are:
+A. Code written such that it is testiable and portable
+B. Use of fast test tools and people invested in testing code releases
+C. the CI process is automated and its success is a high priority
+D. quick deployment of releases and testable code 
+ANSWER:C 
+During a pure EP development process, who writes the acceptance tests?
+A. The test team
+B. The developers during
+C. The product owner
+D. The customer
+ANSWER: D
+One tool to help collective ownership of code is:
+A. agree upon a common coding standard
+B. hold daily stand-up meetings
+C. randomly assign development tasks to team members
+D. encourage team members to switch development teams after releases
+ANSWER: A
+The best definition of testing is:
+A. executing a program with the intent to show it does what it is supposed to do
+B. demonstrating the errors are not present in a program
+C. executing a program with the intent of finding errors
+D. execuring a program to demonstrate that errors are not present
+ANSWER: C
+Why is black box testing alone insufficent
+A. Using the specific 
+B. 
+C. 
+D. 
+
+
+
+
+A
 
