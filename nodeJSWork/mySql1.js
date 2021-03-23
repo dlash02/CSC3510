@@ -5,13 +5,13 @@ var con = mysql.createConnection({
     password: "csc3610",
     database: "csc3610"
 });
-//con.connect(function(err) {
-    //if (err) throw err;
-    //con.query("SELECT * FROM BestSellingBooks", function (err, result, fields) {
-        //if (err) throw err;
-        //console.log(result);
-    //});
-//});
+con.connect(function(err) {
+    if (err) throw err;
+    con.query("SELECT * FROM BestSellingBooks", function (err, result, fields) {
+        if (err) throw err;
+        console.log(result);
+    });
+});
 module.exports = {
     con
 }
