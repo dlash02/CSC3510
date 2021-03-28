@@ -2,7 +2,6 @@
 // app/converter.js
 
 exports.rgbToHex = function(red, green, blue) {
-
     var redHex   = red.toString(16);
     var greenHex = green.toString(16);
     var blueHex  = blue.toString(16);

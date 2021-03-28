@@ -2,6 +2,9 @@ const express = require('express'),
     app = express(),
     bodyParser = require('body-parser');
 port = process.env.PORT || 3000;
+let cors = require('cors')
+
+app.use(cors()) // Use this after the variable declaration
 
 const mysql = require('mysql');
 // connection configurations

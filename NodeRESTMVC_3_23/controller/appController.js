@@ -1,15 +1,20 @@
 'use strict';
 var Task = require('../model/appModel.js');
+
 exports.list_all_tasks = function (req, res) {
+    console.log("LIST ALL TASKS");
     Task.getAllTask(function (err, task) {
         console.log('controller')
+        res.setHeader('Content-Type', 'application/json');
         if (err) res.send(err);
-        console.log('res', task);
+        //console.log('res', task);
         res.send(task);
     });
 };
 exports.create_a_task = function (req, res) {
+    console.log("POST CREATA");
     var new_task = new Task(req.body);
+    console.log( new_task );
     //handles null error
     if (!new_task.task || !new_task.status) {
         res.status(400).send({error: true, message: 'Please provide task/status'});

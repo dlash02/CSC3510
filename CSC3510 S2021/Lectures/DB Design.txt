@@ -1,0 +1,12 @@
+Item                  User       Locations                             
+id                      id            id, floor, buildingName
+category              fName           05, Null, footballField
+description           lName
+adminID               isAdmin
+studentID
+claimerID
+LocationID
+dateEnter
+dateClaimed
+DateFound
+
