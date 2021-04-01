@@ -1,5 +1,5 @@
-function insertNew(id) {
-    alert(`New insert id:${id}`);
+function updateIt(id) {
+    alert(`New Update id:${id}`);
 }
  function deleteIt(id) {
     alert(`New delete id:${id}`);
@@ -53,7 +53,7 @@ $(document).ready(function() {
         refreshPage( URL2 );
 });
    function refreshPage( URL2 ){
-       alert(`Inside refresh :${URL2}`);
+       alert(`Inside refresh! :${URL2}`);
         $.ajax({
             url: URL2,
             headers: {'Access-Control-Allow-Origin':'*'}, // <-------- set this
@@ -79,6 +79,8 @@ $(document).ready(function() {
                     oStr += `<td>${s} </td>`;
                     oStr += `<td>${c} </td>`;
                     oStr += `<td> <button value='${id}' class="btn btn-outline-success" type="submit" onclick="deleteIt(${id})">Delete ${id}</button></td>`;
+                    oStr += `<td> <form method="get" action="homePage_Update_by_Id.html"> <input type="hidden" name="id" value="${id}"> `;
+                    oStr += ` <input type="submit" class="btn btn-outline-success" value="Update!: ${id}"></form> </td>`;
                     oStr += `</tr>`;
                     console.log(data[i].task);
                 }

@@ -1,7 +1,53 @@
-function insertNew(id) {
-    alert(`New insert id:${id}`);
+function sendTheUpdate() {
+    alert("send the update");
 }
- function deleteIt(id) {
+function updateIt(id, t='apple', s=12) {
+    //alert(`New Update id:${id}`);
+    let oStr = `<h2> Update of id:${id} </h2>`;
+    oStr += `task <input type=text id='task' name='task' value='${t}'>`;
+    oStr += `status <input type=text id='status' name='status' value='${s}'>`;
+    oStr += `<button type="button" onClick="sendTheUpdate('${id}')"> Update </button>`
+    $('#results').html( oStr );
+}
+function sendTheUpdate( id ) {
+    //
+        //let URL =  "driveChuck.php";
+        //let task = document.getElementById('task').value;
+        let task = $('#task').val();
+        //let status = document.getElementById('status').value;
+        let status = $('#status').val();
+
+        alert(`Send the Update status:${status} task:${task}`)
+        let URL2 =  `http://127.0.0.1:3000/tasks/${id}`;
+        console.log(`UPDATE showing URL2=${URL2}`);
+        // Error check before doing the rest
+        let d = {
+            task : `${task}`,
+            status : `${status}`
+        }
+        alert(d.task)
+        $.ajax({
+            url: URL2,
+            contentType: 'application/json',
+            type: 'PUT',
+            data : JSON.stringify( d ),
+            success: function (data) {
+                let oStr = "<h2> SUCCESS</h2>";
+                console.log( "POST" );
+                console.log( data );
+                alert("Update Successful!")
+                window.location.reload();
+            },
+            error: function (xhr, status, error) {
+                //var err = eval("(" + xhr.responseText + ")");
+                alert(error );
+                alert("Ajax3 Error");
+                console.log("Error--->>>");
+                console.log(error);
+            }
+        });
+}
+function deleteIt(id) {
     alert(`New delete id:${id}`);
     let URL2 =  `http://127.0.0.1:3000/tasks/${id}`;
     alert(`URL:${URL2}`);
@@ -53,7 +99,7 @@ $(document).ready(function() {
         refreshPage( URL2 );
 });
    function refreshPage( URL2 ){
-       alert(`Inside refresh :${URL2}`);
+       alert(`REFRESSING! :${URL2}`);
         $.ajax({
             url: URL2,
             headers: {'Access-Control-Allow-Origin':'*'}, // <-------- set this
@@ -78,7 +124,8 @@ $(document).ready(function() {
                     oStr += `<td>${t} </td>`;
                     oStr += `<td>${s} </td>`;
                     oStr += `<td>${c} </td>`;
-                    oStr += `<td> <button value='${id}' class="btn btn-outline-success" type="submit" onclick="deleteIt(${id})">Delete ${id}</button></td>`;
+                    oStr += `<td> <button value='${id}' class="btn btn-outline-success" onclick="deleteIt(${id})">Delete ${id}</button></td>`;
+                    oStr += `<td> <button value='${id}' class="btn btn-outline-success" onclick="updateIt(${id}, '${t}', '${s}')">Update ${id}</button></td>`;
                     oStr += `</tr>`;
                     console.log(data[i].task);
                 }
@@ -94,26 +141,4 @@ $(document).ready(function() {
             }
         });
    }
-//$.ajax(settings).done(function (response) {
-            //alert("Back");
-            //console.log("Respons=");
-            //console.log( response );
-            //let oStr = "<table border='1'>";
-            //console.log("Showing");
-            //console.log(response.value);
-            //let objList =  response.value;
-            //let records = objList.value;
-            //console.log("\nobjList");
-            //console.log(objList);
-            //objList.forEach( function ( obj )  {
-                ////alert(`obj=${obj}`);
-                //let oID = obj.id;
-                //oStr += `<tr><td>ID=${obj.id}</td>`;
-                //oStr += `<td>xxxx=${obj.joke}</td>`;
-            //})
-            //alert( `oStr;${oStr}`);
-            //let t = $("#showResults").html( oStr );
-
-        //});
-//});
 
